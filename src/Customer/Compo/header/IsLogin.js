@@ -55,7 +55,7 @@ class IsLogin extends Component {
         if (sessionStorage.getItem("cid") !== null) {
             return (
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{this.state.firstName}</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style={{ border: "1px solid #424242" }, { padding: "1px 10px 1px 10px" }}>{this.state.firstName}</a>
 
                     <div class="dropdown-menu show-me">
                         <Link to="/profile" class="dropdown-item user_drop"> Profile</Link>

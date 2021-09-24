@@ -1,0 +1,56 @@
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.my-prof{
+    margin-top: 80px !important;
+}
+.outer-img{
+    /* background-color: green; */
+    margin-top: 200px !important;
+    margin: auto;
+    height: 100%;
+    width: 100;
+}
+.inner-img{
+    margin-top: -43px;
+    /* width: 50px !important; */
+    /* height: 50px !important; */
+    border-radius: 50%;
+    padding: 30px;
+    font-size: 50px;
+    font-weight: bold;
+    color: red;
+    background-color: #f5c8ff;
+    border: 1px solid black;
+}

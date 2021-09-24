@@ -13,10 +13,17 @@ class ApiService {
     }
 
 
-    fetchUsers() {
-        return axios.get("https://mocki.io/v1/68e054f7-fda8-4ced-a88d-6f5480b33d8c");
+    fetchAllCity() {
+        return axios.get(USER_API_BASE_URL + "/allcity");
     }
 
+    fetchAllCarType() {
+        return axios.get(USER_API_BASE_URL + "/allcartype");
+    }
+
+    fetchAllCarType() {
+        return axios.get(USER_API_BASE_URL + "/allcartype");
+    }
     fetchUserById(userId) {
         return axios.get(USER_API_BASE_URL + '/' + userId);
     }

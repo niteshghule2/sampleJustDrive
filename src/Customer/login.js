@@ -22,27 +22,7 @@ class Login extends Component {
 
 
 
-    signUp = (e) => {
-        if ((this.state.firstName !== '') && (this.state.lastName !== '') && (this.state.email !== '') && (this.state.password !== '') && (this.state.confirmPass !== '')) {
-            if (this.state.password !== this.state.confirmPass) {
-                this.setState({
-                    msg: 'password should be matched'
-                })
-            } else {
-                this.setState({
-                    msg: ''
-                })
-                // this.props.history.push("/")
-            }
 
-        } else {
-            this.setState({
-                msg: 'all field are required'
-            })
-        }
-        e.preventDefault();
-        console.log(this.state)
-    }
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     }
@@ -86,7 +66,7 @@ class Login extends Component {
         var signUp = (e) => {
             if ((this.state.firstName !== '') && (this.state.lastName !== '') && (this.state.email !== '') && (this.state.password !== '') && (this.state.confirmPass !== '')) {
                 if (this.state.password !== this.state.confirmPass) {
-                    toast.warning("Password and confirm password are not equal!");
+                    toast.warning("Password and confirm password are not match!");
                     this.setState({
                         msg: 'password should be matched'
                     })
