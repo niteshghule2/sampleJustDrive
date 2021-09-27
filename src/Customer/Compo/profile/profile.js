@@ -1,9 +1,11 @@
 
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import $ from "jquery"
+// import $ from "jquery"
 import "./profile.css"
 import "datatables.net"
+import api from "../../../service/CustomerApiService"
+import { toast } from 'react-toastify';
 class Profile extends Component {
     constructor(props) {
         super(props);
@@ -25,7 +27,22 @@ class Profile extends Component {
                 id: sessionStorage.getItem("cid"),
                 firstName: sessionStorage.getItem("cfname"),
                 authenticate: true
-            })
+            });
+            api.fetchCustomerById(sessionStorage.getItem("cid"))
+                .then(resp => {
+                    console.log(resp.data)
+                    this.setState({
+                        lastName: resp.data.lastName,
+                        email: resp.data.email,
+                        mobile: resp.data.mobile,
+                        dlNumber: resp.data.drivingLicenseNo,
+                        dlImg: resp.data.drivingLicenceImage
+                    })
+                })
+                .catch(err => {
+                    toast.error("Something Wrong!")
+                    console.log(err.data)
+                });
         }
     }
 
@@ -33,6 +50,7 @@ class Profile extends Component {
         if (this.state.authenticate === false) {
             return <Redirect to="/" />
         }
+        sessionStorage.setItem("done", 0)
         return (
             <div className="container rounded bg-white my-prof">
                 <div className="row">
@@ -84,23 +102,19 @@ class Profile extends Component {
                                     {/* <input type="text" className="form-control" placeholder="enter email id" value={this.state.email} /> */}
                                 </div>
                             </div>
-                            <div className="mt-5 text-center"><button className="btn btn-primary profile-button" type="button">Update</button></div>
+
                             <div id="show-me">
-                                <div className="col-md-12">
-                                    <label className="labels">Password</label>
-                                    {/* <div className="form-control">{this.state.mobile}</div> */}
-                                    <input type="text" className="form-control" placeholder="Change Password" />
-                                </div>
                                 <div className="row mt-2">
                                     <div className="col-md-6">
                                         <label className="labels">Driving License Number</label>
                                         <input type="text" className="form-control" placeholder="Driving License Number" value={this.state.dlNumber} />
                                     </div>
-                                    <div className="col-md-6">
+                                    {/* <div className="col-md-6">
                                         <label className="labels">Driving License Image</label>
                                         <input type="file" className="form-control" placeholder="surname" />
-                                    </div>
+                                    </div> */}
                                 </div>
+                                <div className="mt-5 text-center"><button className="btn btn-primary profile-button" type="button">Update</button></div>
                             </div>
                         </div>
                     </div>
@@ -124,7 +138,7 @@ class Profile extends Component {
                         </div>
                     </div> */}
                 </div>
-            </div>
+            </div >
 
 
         );

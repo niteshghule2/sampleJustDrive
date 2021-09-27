@@ -1,28 +1,32 @@
 // import logo from "./logo.svg";
- import "./header.css";
+import "./header.css";
 
 
-// import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 // import { Link, NavLink } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
 
 
 function Header() {
-    // const counter = useSelector((state) => state.counter);
+  const history = useHistory();
+  if (sessionStorage.getItem("did") === null) {
+    history.push("/d_login")
+  }
+  // const counter = useSelector((state) => state.counter);
 
-    // const isLogged = useSelector((state) => state.isLogged);
-    // const dispatch = useDispatch();
-    // const history = useHistory();
-    // const path = history.location.pathname;
-    // const home = () => {
-    //     history.push('/')
-    // }
-    // const about = () => {
-    //     history.push('/about')
-    // }
-    return (
-        // <div>
-            // {/* <div className="wrapper "> */}
+  // const isLogged = useSelector((state) => state.isLogged);
+  // const dispatch = useDispatch();
+  // const history = useHistory();
+  // const path = history.location.pathname;
+  // const home = () => {
+  //     history.push('/')
+  // }
+  // const about = () => {
+  //     history.push('/about')
+  // }
+  return (
+    // <div>
+    // {/* <div className="wrapper "> */}
     <div className="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       {/* <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -30,8 +34,8 @@ function Header() {
         Tip 2: you can also add an image using data-image tag
     --> */}
       <div className="logo">
-      <Link to="/dealer"><center><h2>JustDRIVE</h2></center></Link>
-        </div>
+        <Link to="/dealer"><center><h2>JustDRIVE</h2></center></Link>
+      </div>
       <div className="sidebar-wrapper">
         <ul className="nav">
           <li className="nav-item  ">
@@ -42,7 +46,7 @@ function Header() {
           </li>
           <li className="nav-item   ">
             <NavLink className="nav-link " exact to="/d_car" activeClassName="active">
-              <i className="material-icons">person</i>
+              <i className="material-icons">directions_car</i>
               {/* <i class="fa-solid fa-cars"></i> */}
               Car
             </NavLink>
@@ -60,12 +64,18 @@ function Header() {
             </NavLink>
           </li>
           <li className="nav-item ">
-            <NavLink className="nav-link" exact to="/d_completed_bookings" activeClassName="active">
-              <i className="material-icons">bubble_chart</i>
-              Completed Bookings
+            <NavLink className="nav-link" exact to="/d_ongoing_bookings" activeClassName="active">
+              <i className="material-icons">published_with_changes</i>
+              OnGoing Bookings
             </NavLink>
           </li>
           <li className="nav-item ">
+            <NavLink className="nav-link" exact to="/d_completed_bookings" activeClassName="active">
+              <i className="material-icons">fact_check</i>
+              Completed Bookings
+            </NavLink>
+          </li>
+          {/* <li className="nav-item ">
             <NavLink className="nav-link" exact to="/d_billing" activeClassName="active" >
               <i className="material-icons">location_ons</i>
               Invoice Bill
@@ -76,14 +86,14 @@ function Header() {
               <i className="material-icons">notifications</i>
               Notification
             </NavLink>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>
-    
-     
-    
-    );
+
+
+
+  );
 }
 
 export default Header;

@@ -7,6 +7,7 @@ function About() {
     // const history = useHistory();
     // const home = () => {
     //     history.push('/')
+    sessionStorage.setItem("done", 0)
     // }
     return (
         <div>

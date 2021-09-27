@@ -26,7 +26,7 @@ function Home() {
     // const style = {
 
     // }
-
+    sessionStorage.setItem("done", 0)
     return (
         <div >
 

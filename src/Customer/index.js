@@ -16,7 +16,8 @@ import About from './Compo/about';
 import Contact from './Compo/contact';
 import Bookings from './Compo/profile/booking'
 import Profile from "./Compo/profile/profile";
-
+import CarList from "./Compo/carList"
+import BDone from "./Compo/success/b_done";
 
 
 function Customer() {
@@ -25,11 +26,13 @@ function Customer() {
             {/* <Style> */}
             <Header />
             <Route exact path="/" component={() => <Home />} />
-            <Route path="/about" component={() => <About />} />
+            <Route exact path="/about" component={() => <About />} />
             {/* <Route exact path="/services" component={() => <Home />} /> */}
             <Route exact path="/contact" component={() => <Contact />} />
             <Route exact path="/bookings" component={() => <Bookings />} />
             <Route exact path="/profile" component={() => <Profile />} />
+            <Route exact path="/car_list" component={() => <CarList />} />
+            <Route exact path="/b_done" component={() => <BDone />} />
             <Footer />
             {/* </Style> */}
         </div>

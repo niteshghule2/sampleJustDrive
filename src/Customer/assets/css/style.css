@@ -1181,7 +1181,7 @@ responsive
   .trainer-item {
     margin-bottom: 30px;
   }
-  #contact-us #map {
+  #contact-us #mape {
     margin-bottom: -7px;
   }
   #contact-us .contact-form {
@@ -1289,6 +1289,7 @@ a:hover {
     color: gray;
     font-size: 12px;
     text-align: right;
+    cursor: pointer;
 }
 @media (max-width:992px){
   .main-banner .caption h2 {
@@ -1317,8 +1318,16 @@ a:hover {
   .main-banner{
     height: 107vh !important;
   }
+  .top_bg_crlst{
+    padding: 50px !important;
+    text-align: center;
+  }
 }
 @media (min-width:993px){
+  .top_bg_crlst{
+    padding: 80px !important;
+    text-align: center;
+  }
   .main-banner .caption h2 {
     margin-top: 70px;
     margin-bottom: 25px;
@@ -1367,7 +1376,105 @@ a:hover {
   color: white !important;
   margin: -30px 20px 0px 20px;
 }
-.card-title{
+/* .card-title{
   color: white !important;
   font-weight: bold;
+} */
+.details{
+  margin-top: 10px;
+  line-height: 5px;
+  color: rgb(179, 179, 179);
+  /* background-color: black; */
+  font-size: 10px;
+}
+.person_icon{
+  line-height: 15px;
+  /* padding:5px; */
+  font-size: 10px;
+}
+#show-me{
+  margin-top: 30px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.514);
+  padding: 10px;
+}
+/* #pickupDateTime, #{
+
+} */
+/* .top_bg_crlst{
+  padding: 80px !important;
+  text-align: center;
+} */
+/* @media screen() {
+  
+} */
+.m-cl{
+  padding: 7px;
+}
+.my-back{
+  padding: 10px;
+  margin-bottom: 20x;
+  margin-top: 30px;
+}
+.r1, .r2{
+  /* margin: 5px; */
+  /* background-color: white; */
+  border-left:2px solid rgb(255, 255, 255);
+  border-right:2px solid rgb(255, 255, 255);
+}
+.r1{
+  background-color: #ed563b  !important;
+  color: white !important;
+}
+.r2{
+  border: 1px solid rgb(247, 247, 247);
+  max-height: 100vh;
+  overflow-y: auto;
+  
+}
+.each-row{
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  border-bottom: 1px solid rgb(99, 99, 99);
+  font-size: 14px;
+  margin: 2px 0px 2px 0px;
+}
+.each-row:hover{
+  background-color: rgba(210, 247, 0, 0.397);
+  border-radius: 5px;
+  padding: 10px;
+  border-bottom: 1px solid rgb(122, 122, 122);
+}
+/* .pin span{
+  background-color: red;
+  width: 15px;
+  height: 5px;
+  border-radius: 50%;
+} */
+
+.title{
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+}
+.mybtn{
+  margin: auto;
+  margin-top: 10px;
+  background-color: #8e24aa;
+  border-radius: 10px;
+  padding: 7px 15px 7px 15px;
+  border: none;
+  color: wheat;
+  font-weight: bold;
+}
+.labels{
+  color: rgb(199, 199, 199) !important;
+}
+
+.advPay{
+  padding: 5px;
+  width: 95%;
+}
+.my-val{
+  color: white !important;
 }
