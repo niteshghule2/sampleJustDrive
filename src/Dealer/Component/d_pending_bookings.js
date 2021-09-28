@@ -43,31 +43,7 @@ class PendingBookingList extends Component {
         this.setState({
           bookings: resp.data
         })
-        //alert(this.state.bookings.id)
-
-        //     $('#tableID').html(`<thead>
-        //     <tr>
-        //       <th>BookingID</th>
-        //       <th>Pickup Date</th>
-        //       <th>Pickup Time</th>
-        //       <th>Return Date</th>
-        //       <th>Return Time</th>
-        //       <th>Total Fare</th>
-        //       <th>Advance Payment</th>
-        //       <th>View</th>
-        //     </tr>
-        //   </thead>
-        //   <tbody>
-        //   `);
-
-        //         resp.data.map(
-        //     bookings =>{
-        //     $('#tableID').append( 
-        //       "<tr key='"+bookings.id+"'><td>"+bookings.id+"</td><td>"+bookings.pickupDate+"</td><td>"+bookings.pickupTime+"</td><td>"+bookings.returnDate+"</td><td>"+bookings.returnTime+"</td><td>"+bookings.totalFare+"</td><td>"+bookings.advancePayment+"</td><td><button className='btn btn-success'> View</button></td></tr>"
-        //         )
-        //     }
-
-        // );
+        $('#tableID').DataTable();
       })
       .catch(err => {
         console.error(err);
@@ -86,6 +62,7 @@ class PendingBookingList extends Component {
         console.log(resp.data)
 
         toast.success(resp.data)
+
         window.location.reload(false);
 
       })

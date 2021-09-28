@@ -10,6 +10,7 @@ import { render } from "@testing-library/react";
 import { Component } from "react";
 import api from "../../service/DealerApiService"
 import { toast } from 'react-toastify';
+import { Link } from "react-router-dom"
 
 
 class Home extends Component {
@@ -130,9 +131,10 @@ class Home extends Component {
                 <div className="ct-chart" id="dailySalesChart"></div>
               </div>
               <div className="card-body">
-                <h4 className="card-title">Daily Sales</h4>
+                <Link to="/d_all_bookings"><h4 className="card-title">Completed Bookings</h4></Link>
                 <p className="card-category">
-                  <span className="text-success"><i className="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                  <span className="text-success">Goto Completed bookings.</span></p>
+                {/* <span className="text-success"><i className="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p> */}
               </div>
               <div className="card-footer">
                 <div className="stats">
@@ -147,12 +149,12 @@ class Home extends Component {
                 <div className="ct-chart" id="websiteViewsChart"></div>
               </div>
               <div className="card-body">
-                <h4 className="card-title">Email Subscriptions</h4>
-                <p className="card-category">Last Campaign Performance</p>
+                <Link to="/d_ongoing_bookings"><h4 className="card-title">Ongoing Bookings</h4></Link>
+                <p className="card-category">Display Ongoing Bookings</p>
               </div>
               <div className="card-footer">
                 <div className="stats">
-                  <i className="material-icons">access_time</i> campaign sent 2 days ago
+                  <i className="material-icons">access_time</i> updated 4 minutes ago
                 </div>
               </div>
             </div>
@@ -163,12 +165,12 @@ class Home extends Component {
                 <div className="ct-chart" id="completedTasksChart"></div>
               </div>
               <div className="card-body">
-                <h4 className="card-title">Completed Tasks</h4>
-                <p className="card-category">Last Campaign Performance</p>
+                <Link to="/d_pending_bookings"><h4 className="card-title">Pending Bookings</h4></Link>
+                <p className="card-category">Bookings</p>
               </div>
               <div className="card-footer">
                 <div className="stats">
-                  <i className="material-icons">access_time</i> campaign sent 2 days ago
+                  <i className="material-icons">access_time</i> updated 4 minutes ago
                 </div>
               </div>
             </div>

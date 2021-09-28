@@ -4,7 +4,7 @@ import "./login.css";
 import api from "../service/CustomerApiService"
 import { toast } from 'react-toastify';
 import $ from "jquery"
-import loader from "./assets/images/loader.gif"
+// import loader from "./assets/images/loader.gif"
 class Login extends Component {
     constructor(props) {
         super(props)

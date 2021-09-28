@@ -20,18 +20,6 @@ class Home extends Component {
     this.state = {
 
       dashboard: []
-      // allCustomersCount: 0,
-      // allDealersCount: 0,
-      // allCityCount: 0,
-      // allCarCount: 0,
-      // availableCarCount: 0,
-      // allBookingsCount: 0,
-      // allOngoingCount: 0,
-      // allPendingBCount: 0,
-      // allCompletedBCount: 0,
-      // allCanceledBCount: 0,
-      // bookingAmount: 0,
-      // message: null
     }
     // this.componentDidMount = this.componentDidMount;
   }
@@ -49,9 +37,9 @@ class Home extends Component {
 
       })
       .catch(err => {
-        console.error(err);
+        console.error(err.response.data.message);
 
-        toast.error(err.response.data.message);
+        toast.error("Something Wrong");
       })
   }
 

@@ -19,69 +19,45 @@ class BookingList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        bookings: [],
-        message: null
+      bookings: [],
+      message: null
     }
     // this.deleteUser = this.deleteUser.bind(this);
     // this.editUser = this.editUser.bind(this);
     // this.addUser = this.addUser.bind(this);
-   // this.reloadUserList = this.reloadUserList.bind(this);
-}
+    // this.reloadUserList = this.reloadUserList.bind(this);
+  }
   componentDidMount = () => {
-    
-     //$('#tableID').DataTable();
-//     this.reloadUserList();
-//   }
-// reloadUserList() {
-    
-    api.fetchBookings(sessionStorage.getItem("did"))
-        .then(resp => {
-            //alert("xyz")
-            //console.log(resp.data);
-            this.setState({
-              bookings:resp.data
-            })
-            //alert(this.state.bookings.id)
 
-        //     $('#tableID').html(`<thead>
-        //     <tr>
-        //       <th>BookingID</th>
-        //       <th>Pickup Date</th>
-        //       <th>Pickup Time</th>
-        //       <th>Return Date</th>
-        //       <th>Return Time</th>
-        //       <th>Total Fare</th>
-        //       <th>Advance Payment</th>
-        //       <th>View</th>
-        //     </tr>
-        //   </thead>
-        //   <tbody>
-        //   `);
-            
-        //         resp.data.map(
-        //     bookings =>{
-        //     $('#tableID').append( 
-        //       "<tr key='"+bookings.id+"'><td>"+bookings.id+"</td><td>"+bookings.pickupDate+"</td><td>"+bookings.pickupTime+"</td><td>"+bookings.returnDate+"</td><td>"+bookings.returnTime+"</td><td>"+bookings.totalFare+"</td><td>"+bookings.advancePayment+"</td><td><button className='btn btn-success'> View</button></td></tr>"
-        //         )
-        //     }
-            
-        // );
+    //$('#tableID').DataTable();
+    //     this.reloadUserList();
+    //   }
+    // reloadUserList() {
+
+    api.fetchBookings(sessionStorage.getItem("did"))
+      .then(resp => {
+        //alert("xyz")
+        //console.log(resp.data);
+        this.setState({
+          bookings: resp.data
         })
-        .catch(err => {
-          console.error(err);
-          //this.setState({ msg: err.response.data.message });
-          toast.error(err.response.data.message);
+        $('#tableID').DataTable();
       })
-      }
-      editUser=(id)=>{
-        var bb = this.state.bookings.filter(b => {
-          if (b.id == id) { return b }
-        })
-        
-        console.log(bb)
-        //if (bb[0].bookingStatus === "COMPLETED") { var a = `<button id="pdf" onclick="click()" class="btn btn-primary">PDF</button>` } else { var a = "" };
-        //this.state.pdfLink = a;
-        var myData = `<div >
+      .catch(err => {
+        console.error(err);
+        //this.setState({ msg: err.response.data.message });
+        toast.error(err.response.data.message);
+      })
+  }
+  editUser = (id) => {
+    var bb = this.state.bookings.filter(b => {
+      if (b.id == id) { return b }
+    })
+
+    console.log(bb)
+    //if (bb[0].bookingStatus === "COMPLETED") { var a = `<button id="pdf" onclick="click()" class="btn btn-primary">PDF</button>` } else { var a = "" };
+    //this.state.pdfLink = a;
+    var myData = `<div >
         <table class="table table-borderless" id="bill-table" style="width:1000px" >
       
       <tbody>
@@ -96,7 +72,7 @@ class BookingList extends Component {
         
         <tr >
           <th width="50%">Customer Name :</th>
-          <td width="50%">`+ bb[0].customerDetails.firstName +` `+ bb[0].customerDetails.lastName + `</td>
+          <td width="50%">`+ bb[0].customerDetails.firstName + ` ` + bb[0].customerDetails.lastName + `</td>
         </tr>
         <tr >
         <th width="50%">Driving License :</th>
@@ -140,16 +116,16 @@ class BookingList extends Component {
       </tbody>
     </table><div>
         `;
-        $('#modal-body').html(myData);
-      }
-    
+    $('#modal-body').html(myData);
+  }
+
 
   render() {
-    
+
     return (
       <div>
         <div className="container-fluid">
-        <div className="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-xl" role="document">
               <div className="modal-content">
                 <div className="modal-header">
@@ -169,7 +145,7 @@ class BookingList extends Component {
               </div>
             </div>
           </div>
-          
+
           <div className="row">
             <div className="col-md-12">
               <div className="card">
@@ -181,7 +157,7 @@ class BookingList extends Component {
                   <div className="table-responsive">
                     <table id="tableID" className="table table-striped" style={{ width: "100%" }}>
                       <thead>
-                      <tr>
+                        <tr>
                           <th>BookingID</th>
                           <th>Pickup Date & Time</th>
                           <th>Pickup City</th>
@@ -194,25 +170,25 @@ class BookingList extends Component {
                       </thead>
                       <tbody>
                         {
-                            this.state.bookings.map(
-                        bookings =>
-                                    <tr key={bookings.id}>
-                                        <td>{bookings.id}</td>
-                                        <td>{bookings.pickupDateTime}</td>
-                                        <td>{bookings.carDetails.dealer.city.cityName}, {bookings.carDetails.dealer.city.cityState}</td>
-                                        
-                                        <td>{bookings.carDetails.carType.carTypeName}</td>
-                                        <td>{bookings.carDetails.carNo}</td>
-                                        <td>{bookings.totalFare}</td>
-                                        <td>{bookings.bookingStatus}</td>
-                                        <td>
-                                            <button data-toggle="modal" data-target="#exampleModal" className="btn btn-success" onClick={() => this.editUser(bookings.id)}> View</button>
-                                            {/* <button className="btn btn-success" onClick={() => this.editUser(bookings.id)} style={{marginLeft: '20px'}}> Edit</button> */}
-                                        </td>
-                                    </tr>
-                            )
+                          this.state.bookings.map(
+                            bookings =>
+                              <tr key={bookings.id}>
+                                <td>{bookings.id}</td>
+                                <td>{bookings.pickupDateTime}</td>
+                                <td>{bookings.carDetails.dealer.city.cityName}, {bookings.carDetails.dealer.city.cityState}</td>
+
+                                <td>{bookings.carDetails.carType.carTypeName}</td>
+                                <td>{bookings.carDetails.carNo}</td>
+                                <td>{bookings.totalFare}</td>
+                                <td>{bookings.bookingStatus}</td>
+                                <td>
+                                  <button data-toggle="modal" data-target="#exampleModal" className="btn btn-success" onClick={() => this.editUser(bookings.id)}> View</button>
+                                  {/* <button className="btn btn-success" onClick={() => this.editUser(bookings.id)} style={{marginLeft: '20px'}}> Edit</button> */}
+                                </td>
+                              </tr>
+                          )
                         }
-                    </tbody>
+                      </tbody>
                     </table>
                   </div>
                 </div>

@@ -32,7 +32,7 @@ class HomeMain extends Component {
                 this.setState({ city: resp.data })
             })
             .catch(err => {
-                toast.error("Something Wrong!")
+                toast.error("Something Wrong - City Not loaded")
                 console.log(err.data)
                 // toast.error("Something Wrong!");
             });

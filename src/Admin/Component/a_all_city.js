@@ -35,7 +35,7 @@ class CityList extends Component {
           cities: resp.data
         })
 
-
+        $('#tableID').DataTable();
 
       })
       .catch(err => {

@@ -34,7 +34,7 @@ class MessageList extends Component {
         this.setState({
           message: resp.data
         })
-
+        $('#tableID').DataTable();
 
 
       })

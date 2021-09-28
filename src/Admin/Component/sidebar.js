@@ -91,7 +91,7 @@ function Header() {
           <li className="nav-item ">
             <NavLink className="nav-link" exact to="/a_all_message" activeClassName="active" >
               <i className="material-icons">email</i>
-              Feedback Messages
+              Customer Messages
             </NavLink>
 
 

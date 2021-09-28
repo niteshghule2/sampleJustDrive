@@ -11,15 +11,15 @@ $.DataTable = require("datatables.net")
 
 
 class Bookings extends Component {
+  state = {
+    bookings: [],
+    bauthenticate: (sessionStorage.getItem("cid") !== null),
+    sBId: '',
+    pdfLink: ''
+  }
   constructor(props) {
     super(props);
 
-    this.state = {
-      bookings: [],
-      bauthenticate: (sessionStorage.getItem("cid") !== null),
-      sBId: '',
-      pdfLink: ''
-    }
     this.componentDidCatch = this.componentDidMount;
     // this.my = this.my;
   };
@@ -40,35 +40,7 @@ class Bookings extends Component {
     api.fetchCustomerBookings(sessionStorage.getItem("cid"))
       .then(resp => {
         this.setState({ bookings: resp.data })
-        var my = `
-        <table id="tableID" className="table table-striped" style="width: 100%" >
-        <thead>
-        <tr>
-          <th>Booking Id</th>
-          <th>Booking Date & Time</th>
-          <th>Pickup City</th>
-          <th>Car Type</th>
-          <th>Car Number</th>
-          <th>Status</th>
-          <th>View</th>
-        </tr>
-      </thead>
-      <tbody>`;
-        resp.data.map(b => (my += `
-          <tr>
-            <td>`+ b.id + `</td>
 
-            <td>`+ b.bookingDateTime + `</td>
-            <td>`+ b.carDetails.dealer.city.cityName + `, ` + b.carDetails.dealer.city.cityState + `</td>
-            <td>`+ b.carDetails.carType.carTypeName + `</td>
-            <td>`+ b.carDetails.carNo + `</td>
-            <td>`+ b.bookingStatus + `</td>
-
-            <td><button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="showBooking(`+ b.id + `)">View</button></td>
-          </tr>`
-        ))
-        my += '</tbody></table>';
-        $('#mya').html(my)
         console.log(resp.data);//actual response data sent by back end
         $('#tableID').DataTable();
       })
@@ -182,7 +154,6 @@ class Bookings extends Component {
     win.print();    // PRINT THE CONTENTS.
   }
   render() {
-    $('#tableID').DataTable();
     // console.log(this.state.bookings)
     if (this.state.bauthenticate === false) {
       return <Redirect to="/" />
@@ -227,7 +198,7 @@ class Bookings extends Component {
                 <p className="card-category" style={{ color: "white" }}> Here is your all bookings history!</p>
               </div>
               <div className="card-body">
-                <div className="table-responsive" id="mya">
+                <div className="table-responsive">
                   <table id="tableID" className="table table-striped" style={{ width: "100%" }} >
                     <thead>
                       <tr>
@@ -241,40 +212,35 @@ class Bookings extends Component {
                       </tr>
                     </thead>
                     <tbody>
-
-                      {/* {this.state.bookings.reverse().map(b => (
+                      {this.state.bookings.reverse().map(b => (
                         <tr>
                           <td>{b.id}</td>
-
+                          {/* .format('YYYY-MM-DD HH:MM:SS') */}
                           <td>{b.bookingDateTime}</td>
                           <td>{b.carDetails.dealer.city.cityName}, {b.carDetails.dealer.city.cityState}</td>
                           <td>{b.carDetails.carType.carTypeName}</td>
                           <td>{b.carDetails.carNo}</td>
                           <td>{b.bookingStatus}</td>
-
+                          {/* onClick={() => this.show(b.id)} */}
                           <td><button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick={() => this.showBooking(b.id)}>View</button></td>
                         </tr>
-                      ))} */}
+                      ))}
 
-
-
-                      <tr>
+                      {/* <tr>
                         <td>1</td>
-                        <td>23 Sep 2021 12:30</td>
                         <td>23 Sep 2021 12:30</td>
                         <td>Pune, Maharashtra</td>
                         <td>Seden</td>
-                        <td>23 Sep 2021 12:30</td>
-                        <td><button class="btn btn-primary">View</button></td>
-                      </tr>
-                      <tr>
-                        <td>ST2</td>
-                        <td>Wincy</td>
-                        <td>36</td>
-                        <td>23 Sep 2021 12:30</td>
-                        <td>Female</td>
-                        <td>170</td><td>170</td>
-                      </tr>
+                        {/* <td>23 Sep 2021 12:30</td> */}
+                      {/* <td><button class="btn btn-primary">View</button></td>
+                    </tr> */}
+                      {/* <tr> */}
+                      {/* <td>ST2</td> */}
+                      {/* <td>Wincy</td> */}
+                      {/* <td>36</td> */}
+                      {/* <td>Female</td> */}
+                      {/* <td>170</td> */}
+                      {/* </tr> */}
 
                     </tbody>
                   </table>

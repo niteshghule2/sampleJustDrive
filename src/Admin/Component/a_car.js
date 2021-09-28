@@ -17,30 +17,30 @@ class Car extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        cars: [],
-        message: null
+      cars: [],
+      message: null
     }
     // this.deleteUser = this.deleteUser.bind(this);
     // this.editUser = this.editUser.bind(this);
     // this.addUser = this.addUser.bind(this);
-   // this.reloadUserList = this.reloadUserList.bind(this);
-}
+    // this.reloadUserList = this.reloadUserList.bind(this);
+  }
   componentDidMount = () => {
     // $('#tableID').DataTable();
     //alert("xyz")
     api.fetchcars()
-        .then(resp => {
-            //alert("xyz")
-            console.log(resp.data);
-            this.setState({
-              cars:resp.data
-            })
-            //alert(this.state.bookings.id)
+      .then(resp => {
+        //alert("xyz")
+        console.log(resp.data);
+        this.setState({
+          cars: resp.data
         })
-        .catch(err => {
-          console.error(err);
-          //this.setState({ msg: err.response.data.message });
-          toast.error(err.response.data.message);
+        $('#tableID').DataTable();
+      })
+      .catch(err => {
+        console.log(err);
+        //this.setState({ msg: err.response.data.message });
+        toast.error(err.response.data.message);
       })
   }
 
@@ -49,11 +49,11 @@ class Car extends Component {
       <div>
 
         <div className="container-fluid">
-          
+
           <div className="row">
             <div className="bottom-btn col-md-1 col-sm-6  pt-2">
-            {/* <Link to="/a_car_add"className="btn btn-style btn-primary  px-2">Add Car</Link> */}
-          </div> 
+              {/* <Link to="/a_car_add"className="btn btn-style btn-primary  px-2">Add Car</Link> */}
+            </div>
             <div className="col-md-12">
               <div className="card">
                 <div className="card-header card-header-primary">
@@ -78,25 +78,25 @@ class Car extends Component {
                       </thead>
                       <tbody>
                         {
-                            this.state.cars.map(
-                        cars =>
-                                    <tr key={cars.id}>
-                                        <td>{cars.id}</td>
-                                        <td>{cars.carModel}</td>
-                                        <td>{cars.carCompany}</td>
-                                        <td>{cars.carNo}</td>
-                                        <td>{cars.carType.carTypeName}</td>
-                                        <td>{cars.fuelType}</td>
-                                        <td>{cars.dealer.name}</td>
-                                        <td>{cars.hourlyRate}</td>
-                                        <td>
-                                             {/* <button className="btn btn-success" onClick={() => this.deleteUser(cars.id)}> Delete </button> */}
-                                           
-                                        </td>
-                                    </tr>
-                            )
+                          this.state.cars.map(
+                            cars =>
+                              <tr key={cars.id}>
+                                <td>{cars.id}</td>
+                                <td>{cars.carModel}</td>
+                                <td>{cars.carCompany}</td>
+                                <td>{cars.carNo}</td>
+                                <td>{cars.carType.carTypeName}</td>
+                                <td>{cars.fuelType}</td>
+                                <td>{cars.dealer.name}</td>
+                                <td>{cars.hourlyRate}</td>
+                                <td>
+                                  {/* <button className="btn btn-success" onClick={() => this.deleteUser(cars.id)}> Delete </button> */}
+
+                                </td>
+                              </tr>
+                          )
                         }
-                    </tbody></table>
+                      </tbody></table>
                   </div>
                 </div>
               </div>

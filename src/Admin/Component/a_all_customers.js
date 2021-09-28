@@ -14,36 +14,36 @@ class CustomerList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        cust: [],
-        message: null
+      cust: [],
+      message: null
     }
- 
-}
+
+  }
   componentDidMount = () => {
-    
+
     // $('#tableID').DataTable();
-//     this.reloadUserList();
-//   }
-// reloadUserList() {
-    
+    //     this.reloadUserList();
+    //   }
+    // reloadUserList() {
+
     api.fetchCustomers()
-        .then(resp => {
-            console.log(resp.data);
-            this.setState({
-              cust:resp.data
-            })
-           
-            
-       
+      .then(resp => {
+        console.log(resp.data);
+        this.setState({
+          cust: resp.data
         })
-        .catch(err => {
-          console.error(err);
-          toast.error(err.response.data.message);
+
+        $('#tableID').DataTable();
+
       })
-      }
+      .catch(err => {
+        console.log(err);
+        toast.error("Something Wrong");
+      })
+  }
 
   render() {
-    
+
     return (
       <div>
         <div className="container-fluid">
@@ -71,24 +71,24 @@ class CustomerList extends Component {
                       </thead>
                       <tbody>
                         {
-                            this.state.cust.map(
-                              cust =>
-                                      <tr key={cust.id}>
-                                        <td>{cust.id}</td>
-                                        <td>{cust.firstName}</td>
-                                        <td>{cust.lastName}</td>
-                                        <td>{cust.email}</td>
-                                        <td>{cust.mobile}</td>
-                                        <td>{cust.drivingLicenseNo}</td>
-                                        {/* <td>{cust.drivingLicenceImage}</td> */}
-                                        <td>
-                                            {/* <button className="btn btn-success" onClick={() => this.deleteCustomer(cust.id)}>Delete</button> */}
-                                            {/* <button className="btn btn-success" onClick={() => this.editUser(bookings.id)} style={{marginLeft: '20px'}}> Edit</button> */}
-                                        </td>
-                                    </tr>
-                            )
+                          this.state.cust.map(
+                            cust =>
+                              <tr key={cust.id}>
+                                <td>{cust.id}</td>
+                                <td>{cust.firstName}</td>
+                                <td>{cust.lastName}</td>
+                                <td>{cust.email}</td>
+                                <td>{cust.mobile}</td>
+                                <td>{cust.drivingLicenseNo}</td>
+                                {/* <td>{cust.drivingLicenceImage}</td> */}
+                                <td>
+                                  {/* <button className="btn btn-success" onClick={() => this.deleteCustomer(cust.id)}>Delete</button> */}
+                                  {/* <button className="btn btn-success" onClick={() => this.editUser(bookings.id)} style={{marginLeft: '20px'}}> Edit</button> */}
+                                </td>
+                              </tr>
+                          )
                         }
-                    </tbody>
+                      </tbody>
                     </table>
                   </div>
                 </div>
