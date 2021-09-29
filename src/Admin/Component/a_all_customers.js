@@ -1,10 +1,11 @@
 // import { getByDisplayValue } from "@testing-library/dom";
 
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 import $ from "jquery"
 import "datatables.net"
 import api from "../../service/AdminApiService"
 import { toast } from 'react-toastify';
+import { Link } from "react-router-dom";
 // import DataTable from 
 
 
@@ -17,29 +18,26 @@ class CustomerList extends Component {
       cust: [],
       message: null
     }
-
+    this.componentDidMount = this.componentDidMount;
   }
   componentDidMount = () => {
 
     // $('#tableID').DataTable();
-    //     this.reloadUserList();
-    //   }
-    // reloadUserList() {
 
     api.fetchCustomers()
       .then(resp => {
-        console.log(resp.data);
+        // console.log(resp.data);
+        // $('#tableID').DataTable();
         this.setState({
           cust: resp.data
         })
-
         $('#tableID').DataTable();
-
       })
       .catch(err => {
-        console.log(err);
+        console.error(err.response.data.message);
         toast.error("Something Wrong");
       })
+    // $('#tableID').DataTable();
   }
 
   render() {
@@ -71,21 +69,15 @@ class CustomerList extends Component {
                       </thead>
                       <tbody>
                         {
-                          this.state.cust.map(
-                            cust =>
-                              <tr key={cust.id}>
-                                <td>{cust.id}</td>
-                                <td>{cust.firstName}</td>
-                                <td>{cust.lastName}</td>
-                                <td>{cust.email}</td>
-                                <td>{cust.mobile}</td>
-                                <td>{cust.drivingLicenseNo}</td>
-                                {/* <td>{cust.drivingLicenceImage}</td> */}
-                                <td>
-                                  {/* <button className="btn btn-success" onClick={() => this.deleteCustomer(cust.id)}>Delete</button> */}
-                                  {/* <button className="btn btn-success" onClick={() => this.editUser(bookings.id)} style={{marginLeft: '20px'}}> Edit</button> */}
-                                </td>
-                              </tr>
+                          this.state.cust.map(cust => (
+                            <tr key={cust.id}>
+                              <td>{cust.id}</td>
+                              <td>{cust.firstName}</td>
+                              <td>{cust.lastName}</td>
+                              <td>{cust.email}</td>
+                              <td>{cust.mobile}</td>
+                              <td>{cust.drivingLicenseNo}</td>
+                            </tr>)
                           )
                         }
                       </tbody>

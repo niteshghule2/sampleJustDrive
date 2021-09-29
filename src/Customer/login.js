@@ -82,21 +82,30 @@ class Login extends Component {
         }
     }
     signUpOtpSend = () => {
-        if (this.state.password !== this.state.confirmPass) {
-            toast.warning("Password and confirm password are not match!");
+        if ((this.state.firstName !== '') && (this.state.lastName !== '') && (this.state.email !== '') && (this.state.password !== '') && (this.state.confirmPass !== '')) {
+            if (this.state.password !== this.state.confirmPass) {
+                toast.warning("Password and confirm password are not match!");
+            } else {
+                if (this.state.mobile.length === 10) {
+                    // toast.promise("Progress")
+                    var obj = { "to": this.state.email }
+                    api.signupOtpSend(obj)
+                        .then(resp => {
+                            window.$("#exampleModal2").modal();
+                            toast.success(resp.data)
+                            console.log(resp.data)
+                        })
+                        .catch(err => {
+                            toast.error(err.response.data.message)
+                            console.log(err.response.data.message)
+                        })
+                } else {
+                    toast.warning("Mobile Number Must be 10 Digit")
+                }
+            }
         } else {
-            // toast.promise("Progress")
-            var obj = { "to": this.state.email }
-            api.signupOtpSend(obj)
-                .then(resp => {
-                    window.$("#exampleModal2").modal();
-                    toast.success(resp.data)
-                    console.log(resp.data)
-                })
-                .catch(err => {
-                    toast.error(err.response.data.message)
-                    console.log(err.response.data.message)
-                })
+            toast.warning("All field are required!");
+
         }
     }
     singupOtpCheck = () => {

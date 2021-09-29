@@ -64,7 +64,11 @@ class ApiService {
         // alert(obj)
         return axios.post("" + EMAIL_API_BASE_URL + '/signupwithotp/' + otp, cust);
     }
-
+    //singup otp send
+    dlChange(cid, dl) {
+        // alert(obj)
+        return axios.post("" + CUSTOMER_API_BASE_URL + '/updatedl/' + cid + '/' + dl);
+    }
 
 }
 

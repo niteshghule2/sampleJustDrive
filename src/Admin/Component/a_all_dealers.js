@@ -22,11 +22,6 @@ class DealerList extends Component {
   }
   componentDidMount = () => {
 
-    // $('#tableID').DataTable();
-    //     this.reloadUserList();
-    //   }
-    // reloadUserList() {
-
     api.fetchDealers()
       .then(resp => {
         //alert("xyz")
@@ -34,9 +29,7 @@ class DealerList extends Component {
         this.setState({
           dealers: resp.data
         })
-
-
-
+        $('#tableID').DataTable();
       })
       .catch(err => {
         console.log(err);
@@ -88,10 +81,6 @@ class DealerList extends Component {
                                 <td>{dealers.latitude}</td>
                                 <td>{dealers.longitude}</td>
                                 <td>{dealers.city.cityName}</td>
-                                <td>
-                                  {/* <button className="btn btn-success" onClick={() => this.deleteDealer(dealers.id)}>Delete Dealer</button> */}
-                                  {/* <button className="btn btn-success" onClick={() => this.editUser(bookings.id)} style={{marginLeft: '20px'}}> Edit</button> */}
-                                </td>
                               </tr>
                           )
                         }

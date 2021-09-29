@@ -31,10 +31,15 @@
 .labels {
     font-size: 11px
 }
-
+@media (min-width:993px){
 .my-prof{
     margin-top: 80px !important;
 }
+}
+@media (max-width:992px){
+    .my-prof{
+        margin-top: -80px !important;
+    }}
 .outer-img{
     /* background-color: green; */
     margin-top: 200px !important;

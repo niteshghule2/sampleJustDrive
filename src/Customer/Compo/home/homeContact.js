@@ -10,7 +10,7 @@ function HomeContact() {
                         <div className="col-lg-10 offset-lg-1">
                             <div className="cta-content">
                                 <h2>Send us a <em>message</em></h2>
-                                <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula, sit amet dapibus odio augue eget libero. Morbi tempus mauris a nisi luctus imperdiet.</p>
+                                <p>If you have Your own car You can Join JustDrive family easily,just contact us with below link.</p>
                                 <div className="main-button">
                                     <Link to="/contact">Contact us</Link>
                                 </div>

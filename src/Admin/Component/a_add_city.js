@@ -27,25 +27,7 @@ class CityAdd extends Component {
     }
 
   }
-  //   componentDidMount = () => {
-  //      //$('#tableID').DataTable();
 
-  //     api.fetchAllCities()
-  //         .then(resp => {
-
-  //             console.log(resp.data);
-  //             this.setState({
-  //               city:resp.data
-  //             })
-
-  //         })
-  //         .catch(err => {
-  //           console.error(err);
-
-  //           toast.error(err.response.data.message);
-  //       })
-
-  //   }
   submit = () => {
     if (this.state.pincode === '' && this.state.cityName === '' && this.state.cityState === '' && this.state.cityCountry === '') {
       toast.error("All fields are required")

@@ -20,10 +20,6 @@ class Car extends Component {
       cars: [],
       message: null
     }
-    // this.deleteUser = this.deleteUser.bind(this);
-    // this.editUser = this.editUser.bind(this);
-    // this.addUser = this.addUser.bind(this);
-    // this.reloadUserList = this.reloadUserList.bind(this);
   }
   componentDidMount = () => {
     // $('#tableID').DataTable();
@@ -31,6 +27,7 @@ class Car extends Component {
     api.fetchcars()
       .then(resp => {
         //alert("xyz")
+
         console.log(resp.data);
         this.setState({
           cars: resp.data
@@ -38,10 +35,11 @@ class Car extends Component {
         $('#tableID').DataTable();
       })
       .catch(err => {
-        console.log(err);
+        console.error(err);
         //this.setState({ msg: err.response.data.message });
         toast.error(err.response.data.message);
       })
+
   }
 
   render() {
@@ -89,10 +87,10 @@ class Car extends Component {
                                 <td>{cars.fuelType}</td>
                                 <td>{cars.dealer.name}</td>
                                 <td>{cars.hourlyRate}</td>
-                                <td>
-                                  {/* <button className="btn btn-success" onClick={() => this.deleteUser(cars.id)}> Delete </button> */}
+                                {/* <td>
+                                  <button className="btn btn-success" onClick={() => this.deleteUser(cars.id)}> Delete </button>
 
-                                </td>
+                                </td> */}
                               </tr>
                           )
                         }

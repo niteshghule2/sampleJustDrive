@@ -38,7 +38,6 @@ class IsLogin extends Component {
 
     render() {
         var logout = () => {
-
             this.state = {
                 authenticate: false,
                 logout: true
@@ -67,7 +66,7 @@ class IsLogin extends Component {
         } else {
             return (
                 <div className="main-button">
-                    <Link to="/login">Login</Link>
+                    <Link to="/login">Login / Signup</Link>
                 </div>
             );
         }

@@ -48,30 +48,32 @@ function About() {
                                     <img src="assets/images/about-image-1-940x460.jpg" alt="" />
                                     <h4>Our Goals</h4>
 
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel aspernatur natus dignissimos eos quod, odio.</p>
+                                    <p>JustDrive provides the flexibility of having a car anytime you want, as well as the assurance of a sanitized and virus free vehicle for your own self drive. The car sanitization process encompasses all the preventive hygiene best practices directed by the World Health Organization (WHO) and is diligently conducted for each vehicle delivered to the customer.</p>
 
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cupiditate ullam exercitationem molestiae illum? Nam magni, saepe sint maiores vitae!</p>
+                                    <p>Whether you’re planning a road trip outside the city or looking for a convenient way to cruise around when you’re out of town, JustDrive is here to ease your travel woes. You can pick one of JustDrive’s convenient car rental options to drive down to the nearby beach or to manoeuvre through traffic as you head from one important business meeting to the next. With a self-drive car rental from JustDrive, you have the freedom to move around and explore places at your own pace.</p>
 
-                                    <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
+                                    <p>JustDrive has an amazing fleet of rental cars ranging from compact hatchbacks to roomy sedans and powerful SUVs. You can choose to hire a Hyundai Grand i10, Hyundai Creta, Honda City, Maruti Suzuki Brezza, Ford EcoSport, Mahindra Scorpio, Toyota Innova Crysta, Mahindra XUV and many other car models that suit your requirement.</p>
 
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi suscipit commodi impedit unde accusantium nam incidunt tenetur, libero maiores enim! Nisi ex odit, totam nihil doloribus. Nemo ut, eos consequatur libero aut quas dolorum ipsa, quidem, totam dicta id possimus dolores distinctio laboriosam doloribus voluptates tenetur consectetur inventore aliquid dolorem?</p>
+                                    <p>One of our top priorities is to adjust each package we offer to our customer’s exact needs. We offer a variety of options that can enhance your experience, always according to your necessities, and help you get the best out of your holidays or your business trip.</p>
                                 </article>
                                 <article id='tabs-2'>
                                     <img src="assets/images/about-image-2-940x460.jpg" alt="" />
                                     <h4>Our Work</h4>
-                                    <p>Integer dapibus, est vel dapibus mattis, sem mauris luctus leo, ac pulvinar quam tortor a velit. Praesent ultrices erat ante, in ultricies augue ultricies faucibus. Nam tellus nibh, ullamcorper at mattis non, rhoncus sed massa. Cras quis pulvinar eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque ut accusantium cum! Ad quisquam, aut praesentium magni pariatur ipsa! Soluta deserunt accusantium repellendus ratione quam hic facere, cupiditate iste obcaecati a, officiis ipsum aspernatur in?</p>
+                                    <p>We offer 24/7 services. We specialise in the best customer service, Well maintained cars and Clean Cars. All our vehicles are regularly checked and routine maintenance is done on all cars. We provide all user friendly and safety facilities like Air Conditioners, Power Windows, Music System, Power Steering, Seat Covers, ABS, Air Bags.</p>
 
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla a necessitatibus eos vitae quibusdam quo sunt officiis rerum voluptatibus non natus eius placeat officia vel quaerat, reprehenderit obcaecati, eaque? Repudiandae ad facere culpa accusamus aliquam ab assumenda reiciendis corrupti cum nemo, cumque molestiae corporis deserunt!</p>
+                                    <p>We have the keys for you to unlock happiness as you drive away with your loved ones. Choose from more than 15+ car models and rent by the hour. Find us in your neighborhood with our fleet spread over several cities . So whenever you find the roads calling, JustDrive will always be near with 50+ pick-up locations. Ready to drive yourself to your next adventure with JustDrive?</p>
                                 </article>
                                 <article id='tabs-3'>
                                     <img src="assets/images/about-image-3-940x460.jpg" alt="" />
                                     <h4>Our Passion</h4>
-                                    <p>Fusce laoreet malesuada rhoncus. Donec ultricies diam tortor, id auctor neque posuere sit amet. Aliquam pharetra, augue vel cursus porta, nisi tortor vulputate sapien, id scelerisque felis magna id felis. Proin neque metus, pellentesque pharetra semper vel, accumsan a neque.</p>
+                                    <p>Be it business travel, leisure travel, intercity getaways or just city zipping - be spoilt for choices with our exhaustive range of well-maintained Hatchbacks, Sedans, MUVs, SUVs, Hybrids and Luxury Cars on rent. We offer over 25 vehicle makes to choose from across various cities, ensuring you get the best rental cars at lowest prices throughout India.
+                                    </p>
 
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aut beatae commodi repudiandae distinctio, magnam blanditiis reiciendis vitae velit voluptatum natus, fugit quis eos dolores!</p>
+                                    <p>Our self drive car rental come with unlimited kilometres so you can concentrate on counting memories, not kilometres.</p>
 
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic adipisci reiciendis quaerat qui earum aut, atque esse quisquam quis exercitationem sapiente, dolorum consequatur consequuntur voluptatibus ipsam, fuga magnam beatae optio nam. Recusandae ut aliquid, eligendi.</p>
+                                    <p>Rent a car  from the most accessible, affordable and convenient car rental brand in just a few steps.
+                                        JustDrive car rentals lets you rent your vehicle from people around you.Most of the cars in our fleet are equipped with ABS & Airbags.
+                                        All you have to do is rent, ride and repeat.</p>
                                 </article>
                             </section>
                         </div>
@@ -80,24 +82,7 @@ function About() {
             </section>
             {/* <!-- ***** Our classNamees End ***** --> */}
 
-            {/* <!-- ***** Call to Action Start ***** --> */}
-            {/* style="background-image: url(assets/images/banner-image-1-1920x500.jpg)" */}
-            <section className="section section-bg" id="call-to-action" >
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-10 offset-lg-1">
-                            <div className="cta-content">
-                                <h2>Send us a <em>message</em></h2>
-                                <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula, sit amet dapibus odio augue eget libero. Morbi tempus mauris a nisi luctus imperdiet.</p>
-                                <div className="main-button">
-                                    <Link to="/contact">Contact us</Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            {/* <!-- ***** Call to Action End ***** --> */}
+
         </div >
     );
 }

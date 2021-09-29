@@ -31,9 +31,9 @@ function Home() {
         <div >
 
             <HomeMain />
-            <HomeOffer />
+            {/* <HomeOffer /> */}
             <HomeAbout />
-            <HomeTeam />
+            {/* <HomeTeam /> */}
             <HomeContact />
 
 

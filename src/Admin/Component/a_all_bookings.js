@@ -1,6 +1,6 @@
 // import { getByDisplayValue } from "@testing-library/dom";
 
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 import $ from "jquery"
 import "datatables.net"
 import api from "../../service/AdminApiService"
@@ -20,11 +20,6 @@ class BookingList extends Component {
 
   }
   componentDidMount = () => {
-
-    // $('#tableID').DataTable();
-    //     this.reloadUserList();
-    //   }
-    // reloadUserList() {
 
     api.fetchBookings()
       .then(resp => {
@@ -158,15 +153,6 @@ class BookingList extends Component {
                           <th>Total Fare</th>
                           <th>Status</th>
                           <th>View</th>
-                          {/* <th>BookingID</th>
-                          <th>Pickup Date & Time</th>                     
-                          <th>Return Date & Time</th>
-                          <th>Total Fare</th>
-                          <th>Advance Payment</th>
-                          <th>Booking Date</th>
-                          <th>Cust ID</th>
-                          <th>Cust Name</th>
-                          <th>View</th> */}
                         </tr>
                       </thead>
                       <tbody>

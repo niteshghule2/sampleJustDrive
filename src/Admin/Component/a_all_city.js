@@ -1,6 +1,6 @@
 // import { getByDisplayValue } from "@testing-library/dom";
 
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 import $ from "jquery"
 import "datatables.net"
 import api from "../../service/AdminApiService"
@@ -21,26 +21,19 @@ class CityList extends Component {
     this.componentDidMount = this.componentDidMount;
   }
   componentDidMount = () => {
-
     // $('#tableID').DataTable();
-    //     this.reloadUserList();
-    //   }
-    // reloadUserList() {
-
     api.fetchAllCities()
       .then(resp => {
-        //alert("xyz")
-        console.log(resp.data);
+
+        // console.log(resp.data);
         this.setState({
           cities: resp.data
-        })
-
+        });
         $('#tableID').DataTable();
-
       })
       .catch(err => {
-        console.error(err);
-        toast.error(err.response.data.message);
+        console.error(err.response.data.message);
+        toast.error("Something Wrong!");
       })
   }
 
@@ -78,22 +71,15 @@ class CityList extends Component {
                       </thead>
                       <tbody>
                         {
-                          this.state.cities.map(
-                            cities =>
-                              <tr key={cities.id}>
-                                <td>{cities.id}</td>
-                                <td>{cities.cityName}</td>
-                                <td>{cities.cityState}</td>
-                                <td>{cities.cityCountry}</td>
-                                <td>{cities.pincode}</td>
-                                {/* <td>{dealers.latitude}</td>
-                                        <td>{dealers.longitude}</td>
-                                        <td>{dealers.city.cityName}</td> */}
-                                {/* <td>
-                                            <button className="btn btn-success" onClick={() => this.deleteDealer(dealers.id)}>Delete Dealer</button>
-                                            <button className="btn btn-success" onClick={() => this.editUser(bookings.id)} style={{marginLeft: '20px'}}> Edit</button>
-                                        </td> */}
-                              </tr>
+                          this.state.cities.map(cities => (
+                            <tr key={cities.id}>
+                              <td>{cities.id}</td>
+                              <td>{cities.cityName}</td>
+                              <td>{cities.cityState}</td>
+                              <td>{cities.cityCountry}</td>
+                              <td>{cities.pincode}</td>
+
+                            </tr>)
                           )
                         }
                       </tbody>

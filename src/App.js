@@ -17,7 +17,6 @@ function App() {
       <ToastContainer />
       <Router>
         <Switch>
-
           <Route exact path={["/", "/about", "/services", "/contact", "/bookings", "/profile", "/car_list", "/b_done"]} component={() => <Customer />} />
           <Route exact path={["/admin", "/a_car", "/a_all_bookings", "/a_all_dealers", "/a_all_customers", "/a_billing", "/a_add_dealer", "/a_all_city", "/a_add_city", "/a_all_cartype", "/a_all_message"]} component={() => <Admin />} />
           <Route exact path={["/dealer", "/d_car", "/d_all_bookings", "/d_pending_bookings", "/d_ongoing_bookings", "/d_completed_bookings", "/d_billing", "/d_notifications", "/d_car_add", "/d_profile"]} component={() => <Dealer />} />

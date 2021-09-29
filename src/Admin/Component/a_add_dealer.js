@@ -7,29 +7,12 @@ import { Link } from 'react-router-dom';
 import api from "../../service/AdminApiService"
 import { toast } from 'react-toastify';
 import { Redirect } from 'react-router-dom'
-// import DataTable from 
 
-// function Car() {
 class DealerAdd extends Component {
-    // const [count, setCount] = useState(0);
-    // const data = DataTable();
-    // Similar to componentDidMount and componentDidUpdate:
-    // $(document).ready(function () {
-    //   $('#example').data;
-    // });
     constructor(props) {
         super(props)
         this.state = {
-            // cars: [],
-            // message: null,
-            // submit: false,
-            // carNo:'',
-            // carCompany:'',
-            // carModel:'',
-            // fuelType:'',
-            // carType:'',
-            // hourlyRate:0,
-            // carTypes:[]
+
             message: null,
             submit: false,
             name: '',
@@ -71,40 +54,38 @@ class DealerAdd extends Component {
             toast.error("All fields are required")
             return;
         }
-        const dealer = {
-            // carNo:this.state.carNo,
-            // carCompany:this.state.carCompany,
-            // carModel:this.state.carModel,
-            // fuelType:this.state.fuelType,
-            // hourlyRate:this.state.hourlyRate,
+        if (this.state.mobileNumber.length === 10) {
+            const dealer = {
 
-            // carStatus:false
-            name: this.state.name,
-            email: this.state.email,
-            password: this.state.password,
-            mobileNumber: this.state.mobileNumber,
-            address: this.state.address,
-            latitude: this.state.latitude,
-            longitude: this.state.longitude,
+                name: this.state.name,
+                email: this.state.email,
+                password: this.state.password,
+                mobileNumber: this.state.mobileNumber,
+                address: this.state.address,
+                latitude: this.state.latitude,
+                longitude: this.state.longitude,
 
 
-        }
-        //alert(this.state.carType)
-        //alert(did+carType)
-        api.addDealer(this.state.cityName, dealer)
-            .then(resp => {
-                //alert("xyz")
-                //console.log(resp.data);
-                toast.success("Dealer Added Succesfully!")
-                this.setState({
-                    submit: true
+            }
+            //alert(this.state.carType)
+            //alert(did+carType)
+            api.addDealer(this.state.cityName, dealer)
+                .then(resp => {
+                    //alert("xyz")
+                    //console.log(resp.data);
+                    toast.success("Dealer Added Succesfully!")
+                    this.setState({
+                        submit: true
+                    })
                 })
-            })
-            .catch(err => {
-                console.error(err);
-                //this.setState({ msg: err.response.data.message });
-                toast.error(err.response.data.message);
-            })
+                .catch(err => {
+                    console.error(err);
+                    //this.setState({ msg: err.response.data.message });
+                    toast.error(err.response.data.message);
+                })
+        } else {
+            toast.warning("Enter 10 digit mobile number")
+        }
     }
 
     onChange = (e) => {
